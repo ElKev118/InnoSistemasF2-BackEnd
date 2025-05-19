@@ -1,4 +1,5 @@
 package com.udea.innosistemas.model.entity;
+
 import com.udea.innosistemas.model.enums.RolSistema;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

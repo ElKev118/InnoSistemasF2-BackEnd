@@ -1,4 +1,5 @@
 package com.udea.innosistemas.model.dto;
+
 import com.udea.innosistemas.model.enums.RolSistema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
