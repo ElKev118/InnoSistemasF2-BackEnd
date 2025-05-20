@@ -4,6 +4,8 @@ package com.udea.innosistemas.controller;
 import com.udea.innosistemas.model.dto.CrearProyectoRequest;
 import com.udea.innosistemas.model.dto.ProyectoDto;
 import com.udea.innosistemas.service.ProyectoService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +18,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/proyectos")
+@Tag(name = "Proyectos", description = "API para la gestión de proyectos")
+@SecurityRequirement(name = "bearerAuth")
 @RequiredArgsConstructor
 public class ProyectoController {
     private final ProyectoService proyectoService;

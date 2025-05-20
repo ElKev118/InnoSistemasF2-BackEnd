@@ -3,6 +3,8 @@ package com.udea.innosistemas.controller;
 import com.udea.innosistemas.model.dto.AgregarMiembroRequest;
 import com.udea.innosistemas.model.dto.MiembroEquipoDto;
 import com.udea.innosistemas.service.MiembroEquipoService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/equipos/{equipoId}/miembros")
 @RequiredArgsConstructor
+@Tag(name = "Integrantes", description = "API para la gestión de los integrantes de los equipos")
+@SecurityRequirement(name = "bearerAuth")
 public class MiembroEquipoController {
 
     private final MiembroEquipoService miembroEquipoService;
