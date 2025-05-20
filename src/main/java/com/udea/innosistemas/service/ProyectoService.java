@@ -3,6 +3,7 @@ package com.udea.innosistemas.service;
 import com.udea.innosistemas.exception.ResourceNotFoundException;
 import com.udea.innosistemas.model.dto.CrearProyectoRequest;
 import com.udea.innosistemas.model.dto.ProyectoDto;
+import com.udea.innosistemas.model.dto.UsuarioDto;
 import com.udea.innosistemas.model.entity.Equipo;
 import com.udea.innosistemas.model.entity.Proyecto;
 import com.udea.innosistemas.model.entity.Usuario;
@@ -161,8 +162,21 @@ public class ProyectoService {
         proyectoRepository.delete(proyecto);
     }
 
-    private ProyectoDto mapearDto(Proyecto proyecto){
-        return null;
+    private ProyectoDto mapearDto(Proyecto proyecto) {
+        return ProyectoDto.builder()
+                .id(proyecto.getId())
+                .nombre(proyecto.getNombre())
+                .descripcion(proyecto.getDescripcion())
+                .fechaCreacion(proyecto.getFechaCreacion())
+                .equipoId(proyecto.getEquipo().getId())
+                .equipoNombre(proyecto.getEquipo().getNombre())
+                .creador(UsuarioDto.builder()
+                        .id(proyecto.getCreador().getId())
+                        .nombre(proyecto.getCreador().getNombre())
+                        .email(proyecto.getCreador().getEmail())
+                        .rol(proyecto.getCreador().getRol())
+                        .build())
+                .build();
     }
 
 
