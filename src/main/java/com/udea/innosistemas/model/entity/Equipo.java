@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-
 @Data
 @Builder
 @NoArgsConstructor
@@ -16,15 +15,13 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "equipo")
 public class Equipo {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(nullable = false, length = 100)
     private String nombre;
-
-    @Column(length = 500)
-    private String descripcion;
 
     @Column(name = "fecha_creacion", nullable = false, updatable = false)
     private LocalDateTime fechaCreacion;
