@@ -4,6 +4,9 @@ FROM eclipse-temurin:17-jdk-alpine as build
 # Directorio de trabajo
 WORKDIR /workspace/app
 
+# Instalar herramientas para corregir codificación
+RUN apk add --no-cache dos2unix
+
 # Copiar archivos Maven
 COPY mvnw .
 COPY .mvn .mvn
@@ -13,8 +16,11 @@ COPY src src
 # Dar permisos de ejecución al script mvnw
 RUN chmod +x ./mvnw
 
-# Construir la aplicación sin tests
-RUN ./mvnw package -DskipTests
+# Convertir archivos de propiedades a UTF-8
+RUN find ./src -name "*.properties" -type f -exec dos2unix {} \;
+
+# Construir la aplicación sin tests y con codificación explícita
+RUN ./mvnw package -DskipTests -Dproject.build.sourceEncoding=UTF-8 -Dproject.reporting.outputEncoding=UTF-8
 
 # Imagen final más ligera
 FROM eclipse-temurin:17-jre-alpine
