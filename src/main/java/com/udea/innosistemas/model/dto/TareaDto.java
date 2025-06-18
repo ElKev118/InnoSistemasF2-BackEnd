@@ -1,6 +1,7 @@
 package com.udea.innosistemas.model.dto;
 
-import com.udea.innosistemas.model.enums.EstadoProyecto;
+import com.udea.innosistemas.model.enums.EstadoTarea;
+import com.udea.innosistemas.model.enums.PrioridadTarea;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,16 +14,17 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProyectoDto {
+public class TareaDto {
     private Integer id;
-    private String nombre;
+    private String titulo;
     private String descripcion;
+    private Integer proyectoId;
+    private String proyectoNombre;
+    private UsuarioDto creadaPor;
+    private UsuarioDto asignadaA;
+    private EstadoTarea estado;
+    private PrioridadTarea prioridad;
     private LocalDateTime fechaCreacion;
-    private LocalDate fechaInicio;
-    private LocalDate fechaFinPrevista;
+    private LocalDate fechaEntrega;
     private LocalDate fechaCompletado;
-    private EstadoProyecto estado;
-    private Integer equipoId;
-    private String equipoNombre;
-    private UsuarioDto creador;
 }
