@@ -46,5 +46,8 @@ ENV PORT=8080
 # Exponer el puerto
 EXPOSE ${PORT}
 
+# Healthcheck para Docker y Prometheus
+HEALTHCHECK --interval=30s --timeout=3s --retries=3 CMD wget -q --spider http://localhost:${PORT}/actuator/health || exit 1
+
 # Comando para ejecutar la aplicación
 CMD ["sh", "-c", "java -Dserver.port=${PORT} -jar app.jar"]
