@@ -8,18 +8,9 @@ Para ejecutar en local con docker, ejecutar el siguiente script:
 - Aplicación Spring Boot: ```http://localhost:8080```
 - Métricas de Spring Boot: ```http://localhost:8080/actuator/prometheus```
 
-Para ejecutar el servicio alojado en la nube, el link para hacer las peticiones es:
-```
-https://innosistemasfeature-2.onrender.com
-```
+Para ejecutar el servicio alojado en la nube, el link para hacer las peticiones es:```https://innosistemasfeature-2.onrender.com```
 
 Para acceder a la documentación de la API
 
-- En local:
-```
-http://localhost:8080/swagger-ui/index.html#/
-```
-- En la nube:
-```
-https://innosistemasfeature-2.onrender.com/swagger-ui/index.html#/
-```
+- En local: ``` http://localhost:8080/swagger-ui/index.html#/```
+- En la nube: ``` https://innosistemasfeature-2.onrender.com/swagger-ui/index.html#/ ```
