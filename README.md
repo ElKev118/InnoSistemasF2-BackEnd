@@ -13,4 +13,13 @@ Para ejecutar el servicio alojado en la nube, el link para hacer las peticiones 
 https://innosistemasfeature-2.onrender.com
 ```
 
-  
+Para acceder a la documentación de la API
+
+- En local:
+```
+http://localhost:8080/swagger-ui/index.html#/
+```
+- En la nube:
+```
+https://innosistemasfeature-2.onrender.com/swagger-ui/index.html#/
+```
